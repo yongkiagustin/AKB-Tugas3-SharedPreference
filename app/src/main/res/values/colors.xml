@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="colorPeterRiver">#3498db</color>
+    <color name="colorPeterPressed">#2980b9</color>
+    <color name="greenLogin">#96EB64</color>
+    <color name="greenPressed">#32AF5A</color>
+
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="yellowRegister">#FFC800</color>
+    <color name="yellowPressed">#FA6432</color>
+
+</resources>

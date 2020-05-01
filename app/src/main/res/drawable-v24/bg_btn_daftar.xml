@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape>
+            <solid android:color="@color/yellowRegister" />
+
+            <corners
+                android:topRightRadius="0dp"
+                android:bottomRightRadius="0dp"
+                android:topLeftRadius="20dp"
+                android:bottomLeftRadius="20dp" />
+        </shape>
+    </item>
+    <item >
+        <selector>
+            <item android:state_pressed="true">
+                <shape>
+                    <solid android:color="@color/yellowPressed" />
+                    <corners
+                        android:topRightRadius="0dp"
+                        android:bottomRightRadius="0dp"
+                        android:topLeftRadius="20dp"
+                        android:bottomLeftRadius="20dp" />
+                </shape>
+            </item>
+            <item>
+                <shape>
+                    <solid android:color="@color/yellowRegister" />
+                    <corners
+                        android:topRightRadius="0dp"
+                        android:bottomRightRadius="0dp"
+                        android:topLeftRadius="20dp"
+                        android:bottomLeftRadius="20dp" />
+                </shape>
+            </item>
+        </selector>
+    </item>
+
+</layer-list>

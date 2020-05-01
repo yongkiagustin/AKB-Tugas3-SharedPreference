@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Tugas3-SharedPreference</string>
+
+    <string name="tagline">NGASUH</string>
+    <string name="tagline_desc">Siap Menjadi Orangtua Muda</string>
+    <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="hallo">Hallo</string>
+    <string name="nama_kamu"> *Nama Kamu*</string>
+    <string name="confirm">Confirm Password</string>
+    <string name="phonenumber">Nomor Telepon</string>
+    <string name="forget">Lupa password?</string>
+    <string name="masuk">Masuk</string>
+    <string name="keluar">Logout</string>
+    <string name="register">Daftar</string>
+    <string name="daftar">Belum punya akun? Yuk Daftar</string>
+</resources>
