@@ -23,8 +23,8 @@ import id.yongki.tugas3sharedpraference.Utils.Preferences;
 public class MainActivity extends AppCompatActivity {
     private TextView txtMasuk;
     private TextView txtRegister;
-    private EditText edtUsername;
-    private EditText edtPassword;
+    private EditText etUsername;
+    private EditText etPassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,73 +60,68 @@ public class MainActivity extends AppCompatActivity {
 
         txtRegister = findViewById(R.id.txt_login_register);
         txtMasuk = findViewById(R.id.txt_login_masuk);
-        edtUsername = findViewById(R.id.edt_login_username);
-        edtPassword = findViewById(R.id.edt_login_password);
+        etUsername = findViewById(R.id.et_login_username);
+        etPassword = findViewById(R.id.et_login_password);
 
     }
 
     private void validasiLogin() {
 
-        // Mereset semua Error dan fokus menjadi default
-        edtUsername.setError(null);
-        edtPassword.setError(null);
+        
+        etUsername.setError(null);
+        etPassword.setError(null);
         View fokus = null;
         boolean cancel = false;
 
-        //Set Input Value dari View
-        String userName = edtUsername.getText().toString();
-        String password = edtPassword.getText().toString();
+     
+        String userName = etUsername.getText().toString();
+        String password = etPassword.getText().toString();
 
 
-        // Jika form user kosong atau memenuhi kriteria di Method cekUser() maka, Set error di Form-
-        // User dengan menset variable fokus dan error di Viewnya juga cancel menjadi true*/
         if (TextUtils.isEmpty(userName)) {
-            edtUsername.setError("Harus diisi");
-            fokus = edtUsername;
+            etUsername.setError("Harus diisi");
+            fokus = etUsername;
             cancel = true;
         } else if (!cekUser(userName)) {
-            edtUsername.setError("Username Tidak Ditemukan");
-            fokus = edtUsername;
+            etUsername.setError("Username Tidak Ditemukan");
+            fokus = etUsername;
             cancel = true;
         }
 
-        // Jika form password kosong dan memenuhi kriteria di Method cekPassword maka,
-        // Reaksinya sama dengan percabangan User di atas. Bedanya untuk Password dan Repassword*/
+        
         if (TextUtils.isEmpty(password)) {
-            edtPassword.setError("Harus Diisi");
-            fokus = edtPassword;
+            etPassword.setError("Harus Diisi");
+            fokus = etPassword;
             cancel = true;
         } else if (!cekPassword(password)) {
-            edtPassword.setError("Data yang dimasukkan tidak sesuai");
-            fokus = edtPassword;
+            etPassword.setError("Data yang dimasukkan tidak sesuai");
+            fokus = etPassword;
             cancel = true;
         }
-
-        // Jika cancel true, variable fokus mendapatkan fokus. Jika false, maka
-        // Kembali ke LoginActivity dan Set User dan Password untuk data yang terdaftar */
+        
         if (cancel) {
             fokus.requestFocus();
         } else {
-            // Deklarasi Model
+         
             UserModel userModel = new UserModel();
             userModel.setUsername(userName);
             userModel.setPassword(password);
-            // Simpan data ke shared preferences
+            
             Preferences.setUserPreferences(getBaseContext(), userModel);
             Preferences.setLoggedInStatus(getBaseContext(), true);
-            //Pindah Halaman ke home
+           
             startActivity(new Intent(getBaseContext(), HomeActivity.class));
             finish();
         }
 
     }
 
-    // True jika parameter user sama dengan data user yang terdaftar dari Preferences */
+  
     private boolean cekUser(String user) {
         return user.equals(Preferences.getRegisteredUser(getBaseContext()));
     }
 
-    // True jika parameter password sama dengan parameter repassword */
+    
     private boolean cekPassword(String password) {
         return password.equals(Preferences.getRegisteredPassword(getBaseContext()));
     }
